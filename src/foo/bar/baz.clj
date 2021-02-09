@@ -1,15 +1,18 @@
-(  ns
-  foo.bar.baz  "some doc"
-  (:require (foo.bar [abc :as abc]
-              def))
-  (:use foo.bar.qux)
-  (:import foo.bar.qux.Foo
-    ;; Need this for the thing
-    foo.bar.qux.Bar)
-  )
+(ns foo.bar.baz
+  "some doc"
+  (:require
+    [foo.bar.abc :as abc]
+    [foo.bar.def]
+    [foo.bar.qux :refer :all])
+  (:import
+    (foo.bar.qux
+      ;; Need this for the thing
+      Bar
+      Foo)))
 
-(defn hello "says hi" (
-                       [] (hello "world")
-                       ) ([name]
-                          ( println "Hello," name  )
-                          ))
+
+(defn hello
+  "says hi"
+  ([] (hello "world"))
+  ([name]
+   (println "Hello," name)))
