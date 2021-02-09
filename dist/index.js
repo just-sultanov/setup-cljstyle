@@ -110,7 +110,7 @@ function extract(file, destinationFolder) {
         else if (stats.isDirectory()) {
             throw new Error(`Failed to extract ${file} - it is a directory`);
         }
-        yield tc.extractZip(file, destinationFolder);
+        yield tc.extractTar(file, destinationFolder);
     });
 }
 function unzip(repoRoot, destinationFolder) {
