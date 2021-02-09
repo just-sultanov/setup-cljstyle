@@ -8,13 +8,21 @@ jobs:
     strategy:
       matrix:
         os: [ ubuntu-latest ]
+    name: cljstyle-${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v2
-      - run: npm ci
-      - run: npm run build
-      - uses: ./
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Install cljstyle
+        uses: ./
         with:
           version: 0.14.0
-      - name: Run cljstyle on ubuntu
-        if: matrix.os == 'ubuntu-latest'
+
+      - name: Run cljstyle
         run: cljstyle check src
