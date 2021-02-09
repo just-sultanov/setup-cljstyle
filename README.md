@@ -9,6 +9,8 @@ in Github Actions.
 
 ## Usage
 
+See [action.yml](action.yml)
+
 ```yaml
 steps:
   - name: Install cljstyle
