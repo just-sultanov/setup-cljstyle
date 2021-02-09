@@ -1,11 +1,14 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Setup cljstyle'
+description: 'Provision hosted runner with a cljstyle'
+author: 'Ilshat Sultanov'
+branding:
+  icon: 'gift'
+  color: 'blue'
 inputs:
-  milliseconds: # change this
+  version:
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+    description: 'A desired version of cljstyle to install'
+    default: '0.14.0'
 runs:
   using: 'node12'
   main: 'dist/index.js'
