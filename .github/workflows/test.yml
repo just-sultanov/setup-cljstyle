@@ -1,24 +1,20 @@
-name: 'build-test'
-on: # rebuild any PRs and main branch changes
-  pull_request:
-  push:
-    branches:
-      - main
-      - 'releases/*'
+name: 'Test setup-cljstyle'
+
+on: push
 
 jobs:
-  build: # make sure build/ci work properly
-    runs-on: ubuntu-latest
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
     steps:
       - uses: actions/checkout@v2
-      - run: |
-          npm install
-      - run: |
-          npm run all
-  test: # make sure the action works on a clean machine without building
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+      - run: npm ci
+      - run: npm run build
       - uses: ./
         with:
-          milliseconds: 1000
+          version: 0.14.0
+      - name: Run cljstyle on ubuntu
+        if: matrix.os == 'ubuntu-latest'
+        run: cljstyle check src
