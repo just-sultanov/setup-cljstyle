@@ -79,7 +79,7 @@ async function extract(file: string, destinationFolder: string): Promise<void> {
     throw new Error(`Failed to extract ${file} - it is a directory`)
   }
 
-  await tc.extractZip(file, destinationFolder)
+  await tc.extractTar(file, destinationFolder)
 }
 
 async function unzip(
