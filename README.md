@@ -2,7 +2,9 @@
   <img alt="setup-cljstyle action status" src="https://github.com/just-sultanov/setup-cljstyle/workflows/test/badge.svg">
 </a>
 
+
 **This project is deprecated.**
+
 See more powerful action here [DeLaGuardo/setup-clojure](https://github.com/DeLaGuardo/setup-clojure).
 
 # setup-cljstyle
