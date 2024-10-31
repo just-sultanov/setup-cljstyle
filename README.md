@@ -6,6 +6,7 @@
 **This project is deprecated.**
 
 See more powerful action here [DeLaGuardo/setup-clojure](https://github.com/DeLaGuardo/setup-clojure).
+
 ---
 
 ## setup-cljstyle
